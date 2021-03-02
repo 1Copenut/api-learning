@@ -1,0 +1,27 @@
+{
+  "name": "api-learning",
+  "version": "1.0.0",
+  "description": "It's time to learn about APIs and proxies. This is my repo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1Copenut/api-learning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1Copenut/api-learning/issues"
+  },
+  "homepage": "https://github.com/1Copenut/api-learning#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.2.6",
+    "node-fetch": "^2.6.1",
+    "xml-js": "^1.6.11"
+  }
+}
