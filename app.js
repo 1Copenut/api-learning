@@ -19,7 +19,9 @@ app.use(limiter);
 
 // Routing
 // Test route, visit localhost:3000 to confirm it's working
-app.get('/', (req, res) => res.send('Hello world!'));
+app.get('/', (req, res) => res.send(process.env.TEST_KEY));
+
+app.get('/eia', (req, res) => res.send(process.env.EIA_KEY));
 
 // Our Goodreads relay route
 app.get('/api/search', async (req, res) => {
@@ -41,3 +43,5 @@ app.get('/api/search', async (req, res) => {
     });
   }
 });
+
+app.listen(port, () => console.log(`App listening on port ${port}`));
