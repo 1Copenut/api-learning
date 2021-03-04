@@ -1,12 +1,16 @@
 // https://www.freecodecamp.org/news/private-api-keys/
 
 require('dotenv').config();
+
 const express = require('express');
 const fetch = require('node-fetch');
-const convert = require('xml-js');
-const rateLimit = require('express-rate-limit');
-const app = express();
 const port = 3000;
+const queryString = require('querystring');
+const rateLimit = require('express-rate-limit');
+const url = require('url');
+const { raw } = require('express');
+
+const app = express();
 
 // Rate limiting
 const limiter = rateLimit({
@@ -26,19 +30,20 @@ app.get('/eia', (req, res) => res.send(process.env.EIA_KEY));
 // Our Goodreads relay route
 app.get('/api/search', async (req, res) => {
   try {
-    const searchString = `q${res.query.q}`;
-    const response = await fetch(`https://www.goodreads.com/search/index.xml?key=${process.env.GOODREADS_API_KEY}&${searchString}`);
-    const xml = await response.text();
-    const json = convert.xml2json(xml, { compact: true, spaces: 2 });
-    const results = JSON.parse(json).Goodreads.Response.search.results;
+    // TODO:
+    // Next, parse out the query params from a raw
+    // string and add them to the async fetch call
+    const rawUrl = 'https://api.eia.gov/series/?series_id=PET.W_EPM0F_YPY_R10_MBBLD.4';
 
-    return res.json({
-      success: true,
-      results
-    });
+    const baseUrl = 'https://api.eia.gov/series';
+    const response = await fetch(`${baseUrl}?api_key=${process.env.EIA_KEY}&series_id=PET.W_EPM0F_YPY_R10_MBBLD.4`);
+    const results = await response.json();
+
+    return res.send(results);
   } catch (err) {
     return res.status(500).json({
       success: false,
+      status: 500,
       message: err.message,
     });
   }
