@@ -27,16 +27,19 @@ app.get('/', (req, res) => res.send(process.env.TEST_KEY));
 
 app.get('/eia', (req, res) => res.send(process.env.EIA_KEY));
 
-// Our Goodreads relay route
+// EIA route for series data
 app.get('/api/search', async (req, res) => {
   try {
     // TODO:
     // Next, parse out the query params from a raw
     // string and add them to the async fetch call
-    const rawUrl = 'https://api.eia.gov/series/?series_id=PET.W_EPM0F_YPY_R10_MBBLD.4';
+    const rawUrl =
+      'https://api.eia.gov/series/?series_id=PET.W_EPM0F_YPY_R10_MBBLD.4';
 
     const baseUrl = 'https://api.eia.gov/series';
-    const response = await fetch(`${baseUrl}?api_key=${process.env.EIA_KEY}&series_id=PET.W_EPM0F_YPY_R10_MBBLD.4`);
+    const response = await fetch(
+      `${baseUrl}?api_key=${process.env.EIA_KEY}&series_id=PET.W_EPM0F_YPY_R10_MBBLD.4`
+    );
     const results = await response.json();
 
     return res.send(results);
