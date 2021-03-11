@@ -10,7 +10,15 @@ const url = require('url');
 const { raw } = require('express');
 
 const app = express();
+
+// App config
 const baseUrl = 'https://api.eia.gov/';
+let errorObj = {
+  success: false,
+  status: 500,
+};
+
+// Environment variables
 const EIA_KEY = process.env.EIA_KEY;
 const TEST_KEY = process.env.TEST_KEY;
 
@@ -28,12 +36,54 @@ app.use(limiter);
 
 /*
  * ======================================== *
- * Routing - Series Data
+ * Routing - Smoke Test
  * ======================================== *
  */
 
-// Smoke test
+app.get('/', (req, res) => res.send("There's no place like 127.0.0.1"));
 app.get('/api/test', (req, res) => res.send(TEST_KEY));
+
+/*
+ * ======================================== *
+ * Routing - Category Data
+ * ======================================== *
+ */
+
+// EIA category smoke test
+app.get('/api/categories/test', async (req, res) => {
+  try {
+    const response = await fetch(
+      `${baseUrl}category?api_key=${EIA_KEY}&category_id=714755`
+    );
+    const results = await response.json();
+
+    return res.send(results);
+  } catch (err) {
+    errorObj = Object.assign({ message: err.message }, errorObj);
+    return res.status(500).json(errorObj);
+  }
+});
+
+app.get('/api/categories/data', async (req, res) => {
+  try {
+    const category_id = await req.query.category_id;
+    const response = await fetch(
+      `${baseUrl}category?api_key=${EIA_KEY}&category_id=${category_id}`
+    );
+    const results = await response.json();
+
+    return res.send(results);
+  } catch (err) {
+    errorObj = Object.assign({ message: err.message }, errorObj);
+    return res.status(500).json(errorObj);
+  }
+});
+
+/*
+ * ======================================== *
+ * Routing - Series Data
+ * ======================================== *
+ */
 
 // EIA series smoke test
 app.get('/api/series/test', async (req, res) => {
@@ -56,7 +106,7 @@ app.get('/api/series/test', async (req, res) => {
 // EIA series with query parameters
 app.get('/api/series/data', async (req, res) => {
   try {
-    let series_id = await req.query.series_id;
+    const series_id = await req.query.series_id;
     const response = await fetch(
       `${baseUrl}/series?api_key=${EIA_KEY}&series_id=${series_id}`
     );
@@ -72,4 +122,6 @@ app.get('/api/series/data', async (req, res) => {
   }
 });
 
-app.listen(port, () => console.log(`App listening on port ${port}`));
+app.listen(port, () =>
+  console.log(`App listening on http://localhost:${port}`)
+);
