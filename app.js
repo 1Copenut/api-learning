@@ -1,5 +1,3 @@
-// https://www.freecodecamp.org/news/private-api-keys/
-
 require('dotenv').config();
 const express = require('express');
 const fetch = require('node-fetch');
@@ -11,14 +9,22 @@ const { raw } = require('express');
 
 const app = express();
 
-// App config
+/*
+ * ======================================== *
+ * App config
+ * ======================================== *
+ */
 const baseUrl = 'https://api.eia.gov/';
 let errorObj = {
   success: false,
   status: 500,
 };
 
-// Environment variables
+/*
+ * ======================================== *
+ * Environmental variables
+ * ======================================== *
+ */
 const EIA_KEY = process.env.EIA_KEY;
 const TEST_KEY = process.env.TEST_KEY;
 
@@ -36,12 +42,10 @@ app.use(limiter);
 
 /*
  * ======================================== *
- * Routing - Smoke Test
+ * Routing - Default
  * ======================================== *
  */
-
-app.get('/', (req, res) => res.send("There's no place like 127.0.0.1"));
-app.get('/api/test', (req, res) => res.send(TEST_KEY));
+app.get('/', (req, res) => res.send(TEST_KEY));
 
 /*
  * ======================================== *
