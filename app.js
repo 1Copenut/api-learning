@@ -129,3 +129,5 @@ app.get('/api/series/data', async (req, res) => {
 app.listen(port, () =>
   console.log(`App listening on http://localhost:${port}`)
 );
+
+module.exports = app;
