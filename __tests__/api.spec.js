@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const app = require('../app');
+const app = require('../dist/app');
 
 jest.mock('node-fetch');
 
