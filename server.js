@@ -1,4 +1,4 @@
-const app = require('./dist/app');
+const app = require('./src/app');
 const port = 3000;
 
 app.listen(port, () => {
