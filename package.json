@@ -4,7 +4,7 @@
   "description": "It's time to learn about APIs and proxies. This is my repo.",
   "main": "index.js",
   "scripts": {
-    "serve": "npx nodemon --watch src server.js",
+    "start": "npx nodemon --watch src/ --ignore __tests__/ server.js",
     "test": "jest"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/1Copenut/api-learning#readme",
   "dependencies": {
+    "axios": "^0.24.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-rate-limit": "^5.2.6",

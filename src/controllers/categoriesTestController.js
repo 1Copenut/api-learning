@@ -1,11 +1,10 @@
-const fetch = require("node-fetch");
+const axios = require('axios');
 
 async function categoriesTestController(url, apiKey, categoryId) {
-  const response = await fetch(
+  const response = await axios.get(
     `${url}category?api_key=${apiKey}&category_id=${categoryId}`
   );
-  const results = await response.json();
-  return results;
+  return response.data;
 }
 
 module.exports = categoriesTestController;
