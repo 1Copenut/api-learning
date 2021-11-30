@@ -1,4 +1,4 @@
-function baseController(testSignal) {
+async function baseController(testSignal) {
   return testSignal;
 }
 
