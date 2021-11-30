@@ -6,9 +6,7 @@ const rateLimit = require('express-rate-limit');
 const url = require('url');
 const { raw } = require('express');
 
-const { EIA_KEY, TEST_KEY } = require('./constants/constants.js');
-
-const { BASE_URL, EIA_KEY, TEST_KEY } = require('./constants/constants.js');
+const { BASE_URL, EIA_KEY, TEST_KEY } = require('./constants/constants');
 
 const app = express();
 const baseController = require('./controllers/baseController');
