@@ -13,3 +13,5 @@ It's time to learn about APIs and proxies. This is my repo.
 - [How to Use Fetch with async/await](https://dmitripavlutin.com/javascript-fetch-async-await/)
 - [Get Query Strings and Parameters in Express.js](https://stackabuse.com/get-query-strings-and-parameters-in-express-js/)
 - [The only 3 steps you need to mock an API call in Jest](https://dev.to/zaklaughton/the-only-3-steps-you-need-to-mock-an-api-call-in-jest-39mb)
+- [How to Prevent Cross-Site Scripting in Node.js](https://www.section.io/engineering-education/how-to-prevent-cross-site-scripting-in-node-js/)
+- [express-validator](https://github.com/express-validator/express-validator)
