@@ -12,6 +12,8 @@ const app = express();
 const baseController = require("./controllers/baseController");
 const categoriesTestController = require("./controllers/categoriesTestController");
 const categoriesDataController = require("./controllers/categoriesDataController");
+const seriesTestController = require("./controllers/seriesTestController");
+const seriesDataController = require("./controllers/seriesTestController");
 
 /*
  * ======================================== *
@@ -86,18 +88,11 @@ app.get("/api/categories/data", async (req, res) => {
 app.get("/api/series/test", async (req, res) => {
   /* TODO: Eliminate this test route when real routes are complete */
   try {
-    const response = await fetch(
-      `${BASE_URL}series?api_key=${EIA_KEY}&series_id=PET.W_EPM0F_YPY_R10_MBBLD.4`
-    );
-    const results = await response.json();
-
+    const results = await seriesTestController(BASE_URL, EIA_KEY);
     return res.send(results);
   } catch (err) {
-    return res.status(500).json({
-      success: false,
-      status: 500,
-      message: err.message,
-    });
+    errorObj = Object.assign({ message: err.message }, errorObj);
+    return res.status(500).json(errorObj);
   }
 });
 
@@ -106,18 +101,11 @@ app.get("/api/series/data", async (req, res) => {
   /* FIXME: Add express-validator to prevent XSS */
   try {
     const series_id = await req.query.series_id;
-    const response = await fetch(
-      `${BASE_URL}/series?api_key=${EIA_KEY}&series_id=${series_id}`
-    );
-    const results = await response.json();
-
+    const results = await seriesDataController(BASE_URL, EIA_KEY, series_id);
     return res.send(results);
   } catch (err) {
-    return res.status(500).json({
-      success: false,
-      status: 500,
-      res: err.message,
-    });
+    errorObj = Object.assign({ message: err.message }, errorObj);
+    return res.status(500).json(errorObj);
   }
 });
 
