@@ -18,7 +18,7 @@ API commands documentation: https://www.eia.gov/opendata/commands.php
 
 | Energy Type                       | Data set                                                    | Category                      | Data type | Endpoint URL                                                                 |
 | --------------------------------- | ----------------------------------------------------------- | ----------------------------- | --------- | ---------------------------------------------------------------------------- |
-| **Petroleum Imports and Exports** |                                                             |                               |           |                                                                              |
+| **Petroleum Imports and Exports** |
 | Petroleum                         | U.S. Commercial Crude Oil Imports Excluding SPR, 4 Week Avg | Imports/Exports and Movements | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=PET.WCEIMUS2.4                   |
 | Petroleum                         | U.S. Commercial Crude Oil Imports Excluding SPR, Weekly     | Imports/Exports and Movements | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=PET.WCEIMUS2.W                   |
 | Petroleum                         | U.S. Exports of Crude Oil, 4 Week Avg                       | Imports/Exports and Movements | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=PET.WCREXUS2.4                   |
