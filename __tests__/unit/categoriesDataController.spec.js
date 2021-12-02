@@ -3,7 +3,7 @@ const categoriesDataController = require("../../src/controllers/categoriesDataCo
 
 jest.mock("axios");
 
-it("Returns categories test data", async () => {
+it("Returns categories data", async () => {
   axios.get.mockResolvedValue({
     data: [
       {
