@@ -4,7 +4,6 @@ const fetch = require("node-fetch");
 const queryString = require("querystring");
 const rateLimit = require("express-rate-limit");
 const url = require("url");
-const { raw } = require("express");
 
 const { BASE_URL, EIA_KEY, TEST_KEY } = require("./constants/constants");
 

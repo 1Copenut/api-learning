@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx nodemon --watch src/ --ignore __tests__/ server.js",
-    "test": "jest",
+    "test": "jest --verbose",
     "prepare": "husky install"
   },
   "repository": {
