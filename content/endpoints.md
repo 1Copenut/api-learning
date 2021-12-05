@@ -41,11 +41,37 @@ API commands documentation: https://www.eia.gov/opendata/commands.php
 
 ## Natural Gas Prices &ndash; US Delivery
 
-| Data set                                                                 | Category          | Data type | Endpoint URL                                                                   |
-| ------------------------------------------------------------------------ | ----------------- | --------- | ------------------------------------------------------------------------------ |
-| Alabama Price of Natural Gas Delivered to Residential Consumers, Monthly | Residential Price | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3010AL3.M                      |
-| Alabama Price of Natural Gas Delivered to Industrial Consumers, Monthly  | Industrial Price  | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3035AL3.M                      |
-| _STATE_ Price of Natural Gas Delivered to Residential Consumers, Monthly | Residential Price | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3010 [STATE_2_LETTER_ABBR] 3.M |
-| _STATE_ Price of Natural Gas Delivered to Industrial Consumers, Monthly  | Industrial Price  | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3035 [STATE_2_LETTER_ABBR] 3.M |
-| Wyoming Price of Natural Gas Delivered to Residential Consumers, Monthly | Residential Price | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3010WY3.M                      |
-| Wyoming Price of Natural Gas Delivered to Industrial Consumers, Monthly  | Industrial Price  | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3035WY3.M                      |
+| Data set                                                                   | Category          | Data type | Endpoint URL                                                                   |
+| -------------------------------------------------------------------------- | ----------------- | --------- | ------------------------------------------------------------------------------ |
+| Alabama Price of Natural Gas Delivered to Residential Consumers, Monthly   | Residential Price | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3010AL3.M                      |
+| Alabama Price of Natural Gas Delivered to Industrial Consumers, Monthly    | Industrial Price  | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3035AL3.M                      |
+| **STATE** Price of Natural Gas Delivered to Residential Consumers, Monthly | Residential Price | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3010 [STATE_2_LETTER_ABBR] 3.M |
+| **STATE** Price of Natural Gas Delivered to Industrial Consumers, Monthly  | Industrial Price  | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3035 [STATE_2_LETTER_ABBR] 3.M |
+| Wyoming Price of Natural Gas Delivered to Residential Consumers, Monthly   | Residential Price | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3010WY3.M                      |
+| Wyoming Price of Natural Gas Delivered to Industrial Consumers, Monthly    | Industrial Price  | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3035WY3.M                      |
+
+## Electricity &ndash; generation and sales
+
+| Data set                                                           | Category | Data type                                                                                | Endpoint URL |
+| ------------------------------------------------------------------ | -------- | ---------------------------------------------------------------------------------------- | ------------ |
+| Net generation : all fuels : Alabama : all sectors : annual        | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.GEN.ALL-AL-99.A                         |
+| Net generation : all fuels : Alabama : all sectors : monthly       | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.GEN.ALL-AL-99.M                         |
+| Net generation : all fuels : Alabama : all sectors : quarterly     | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.GEN.ALL-AL-99.Q                         |
+| Net generation : all fuels : **STATE** : all sectors : annual      | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.GEN.ALL-[STATE_2_LETTER_ABBR]-99.A      |
+| Net generation : all fuels : **STATE** : all sectors : monthly     | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.GEN.ALL-[STATE_2_LETTER_ABBR]-99.M      |
+| Net generation : all fuels : **STATE** : all sectors : quarterly   | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.GEN.ALL-[STATE_2_LETTER_ABBR]-99.Q      |
+| East North Central (ENC)                                           | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.GEN.ALL-[REGION_3_LETTER_ABBR]-99.A/M/Q |
+| East South Central (ESC)                                           | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.GEN.ALL-[REGION_3_LETTER_ABBR]-99.A/M/Q |
+| Middle Atlantic (MAT)                                              | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.GEN.ALL-[REGION_3_LETTER_ABBR]-99.A/M/Q |
+| New England (NEW)                                                  | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.GEN.ALL-[REGION_3_LETTER_ABBR]-99.A/M/Q |
+| Pacific Contiguous (PCC)                                           | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.GEN.ALL-[REGION_3_LETTER_ABBR]-99.A/M/Q |
+| Pacific Non-contiguous (PCN)                                       | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.GEN.ALL-[REGION_3_LETTER_ABBR]-99.A/M/Q |
+| ---                                                                | ---      | ---                                                                                      |
+| Retail sales of electricity : Alabama : all sectors : annual       | Series   | /series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.SALES.AL-ALL.A                         |
+| Retail sales of electricity : Alabama : all sectors : monthly      | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.SALES.AL-ALL.M                          |
+| Retail sales of electricity : Alabama : all sectors : quarterly    | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.SALES.AL-ALL.Q                          |
+| Retail sales of electricity : **STATE** : all sectors : annual     | Series   | /series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.SALES.[STATE_2_LETTER_ABBR]-ALL.A      |
+| Retail sales of electricity : **STATE** : all sectors : monthly    | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.SALES.[STATE_2_LETTER_ABBR]-ALL.M       |
+| Retail sales of electricity : **STATE** : all sectors : quarterly  | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.SALES.[STATE_2_LETTER_ABBR]-ALL.Q       |
+| Regions: See first section for three letter region codes           |          |                                                                                          |
+| Retail sales of electricity : **REGION** : all sectors : quarterly | Series   | series/?api_key=YOUR_API_KEY_HERE&series_id=ELEC.SALES.[REGION_3_LETTER_ABBR]-ALL.A/M/Q  |
