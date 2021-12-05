@@ -39,14 +39,13 @@ API commands documentation: https://www.eia.gov/opendata/commands.php
 | U.S. Exports of Residual Fuel Oil, 4 Week Avg               | Imports/Exports and Movements | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=PET.WREEXUS2.4                   |
 | U.S. Exports of Residual Fuel Oil, Weekly                   | Imports/Exports and Movements | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=PET.WREEXUS2.W                   |
 
-## Natural Gas Residential Prices
+## Natural Gas Prices &ndash; US Delivery
 
-| Data set                                                                       | Category          | Data type | Endpoint URL                                                                    |
-| ------------------------------------------------------------------------------ | ----------------- | --------- | ------------------------------------------------------------------------------- |
-| Alabama Price of Natural Gas Delivered to Residential Consumers, Monthly       | Residential Price | Series    | /series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3010AL3.M                      |
-| Alaska Price of Natural Gas Delivered to Residential Consumers, Monthly        | Residential Price | Series    | /series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3010AK3.M                      |
-| Arizona Price of Natural Gas Delivered to Residential Consumers, Monthly       | Residential Price | Series    | /series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3010AZ3.M                      |
-| _STATE_ Price of Natural Gas Delivered to Residential Consumers, Monthly       | Residential Price | Series    | /series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3010 [STATE_2_LETTER_ABBR] 3.M |
-| West Virginia Price of Natural Gas Delivered to Residential Consumers, Monthly | Residential Price | Series    | /series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3010WV3.M                      |
-| Wisconsin Price of Natural Gas Delivered to Residential Consumers, Monthly     | Residential Price | Series    | /series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3010WI3.M                      |
-| Wyoming Price of Natural Gas Delivered to Residential Consumers, Monthly       | Residential Price | Series    | /series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3010WY3.M                      |
+| Data set                                                                 | Category          | Data type | Endpoint URL                                                                   |
+| ------------------------------------------------------------------------ | ----------------- | --------- | ------------------------------------------------------------------------------ |
+| Alabama Price of Natural Gas Delivered to Residential Consumers, Monthly | Residential Price | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3010AL3.M                      |
+| Alabama Price of Natural Gas Delivered to Industrial Consumers, Monthly  | Industrial Price  | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3035AL3.M                      |
+| _STATE_ Price of Natural Gas Delivered to Residential Consumers, Monthly | Residential Price | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3010 [STATE_2_LETTER_ABBR] 3.M |
+| _STATE_ Price of Natural Gas Delivered to Industrial Consumers, Monthly  | Industrial Price  | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3035 [STATE_2_LETTER_ABBR] 3.M |
+| Wyoming Price of Natural Gas Delivered to Residential Consumers, Monthly | Residential Price | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3010WY3.M                      |
+| Wyoming Price of Natural Gas Delivered to Industrial Consumers, Monthly  | Industrial Price  | Series    | series/?api_key=YOUR_API_KEY_HERE&series_id=NG.N3035WY3.M                      |
