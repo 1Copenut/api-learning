@@ -1,18 +1,19 @@
-require("dotenv").config();
-const express = require("express");
-const fetch = require("node-fetch");
-const queryString = require("querystring");
-const rateLimit = require("express-rate-limit");
-const url = require("url");
+const express = require('express');
+const fetch = require('node-fetch');
+const path = require('path');
+const queryString = require('querystring');
+const rateLimit = require('express-rate-limit');
+const url = require('url');
 
-const { BASE_URL, EIA_KEY, TEST_KEY } = require("./constants/constants");
+require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
+const { BASE_URL, EIA_KEY, TEST_KEY } = require('./constants/constants');
 
 const app = express();
-const baseController = require("./controllers/baseController");
-const categoriesTestController = require("./controllers/categoriesTestController");
-const categoriesDataController = require("./controllers/categoriesDataController");
-const seriesTestController = require("./controllers/seriesTestController");
-const seriesDataController = require("./controllers/seriesTestController");
+const baseController = require('./controllers/baseController');
+const categoriesTestController = require('./controllers/categoriesTestController');
+const categoriesDataController = require('./controllers/categoriesDataController');
+const seriesTestController = require('./controllers/seriesTestController');
+const seriesDataController = require('./controllers/seriesTestController');
 
 /*
  * ======================================== *
@@ -41,7 +42,7 @@ app.use(limiter);
  * Routing - Default
  * ======================================== *
  */
-app.get("/", async (req, res) => res.send(await baseController(TEST_KEY)));
+app.get('/', async (req, res) => res.send(await baseController(TEST_KEY)));
 
 /*
  * ======================================== *
@@ -50,10 +51,10 @@ app.get("/", async (req, res) => res.send(await baseController(TEST_KEY)));
  */
 
 // EIA category smoke test
-app.get("/api/categories/test", async (req, res) => {
+app.get('/api/categories/test', async (req, res) => {
   /* TODO: Eliminate this test route when real routes are complete */
   try {
-    const results = await categoriesTestController(BASE_URL, EIA_KEY, "714755");
+    const results = await categoriesTestController(BASE_URL, EIA_KEY, '714755');
     return res.send(results);
   } catch (err) {
     errorObj = Object.assign({ message: err.message }, errorObj);
@@ -61,7 +62,7 @@ app.get("/api/categories/test", async (req, res) => {
   }
 });
 
-app.get("/api/categories/data", async (req, res) => {
+app.get('/api/categories/data', async (req, res) => {
   /* FIXME: Add express-validator to prevent XSS */
   try {
     const category_id = await req.query.category_id;
@@ -84,7 +85,7 @@ app.get("/api/categories/data", async (req, res) => {
  */
 
 // EIA series smoke test
-app.get("/api/series/test", async (req, res) => {
+app.get('/api/series/test', async (req, res) => {
   /* TODO: Eliminate this test route when real routes are complete */
   try {
     const results = await seriesTestController(BASE_URL, EIA_KEY);
@@ -96,7 +97,7 @@ app.get("/api/series/test", async (req, res) => {
 });
 
 // EIA series with query parameters
-app.get("/api/series/data", async (req, res) => {
+app.get('/api/series/data', async (req, res) => {
   /* FIXME: Add express-validator to prevent XSS */
   try {
     const series_id = await req.query.series_id;
