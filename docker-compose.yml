@@ -4,7 +4,7 @@ services:
     build:
       context: ./app
     environment:
-      - TEST_KEY="${TEST_KEY}"
-      - EIA_KEY="${EIA_KEY}"
+      - TEST_KEY=${TEST_KEY}
+      - EIA_KEY=${EIA_KEY}
     ports:
     - "3000:3000"
