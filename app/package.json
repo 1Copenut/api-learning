@@ -4,7 +4,7 @@
   "description": "It's time to learn about APIs and proxies. This is my repo.",
   "main": "app.js",
   "scripts": {
-    "start": "npx nodemon --watch src/ --ignore __tests__/ server.js",
+    "start": "nodemon --watch src/ --ignore __tests__/ server.js",
     "test": "jest --verbose"
   },
   "repository": {
