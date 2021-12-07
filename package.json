@@ -2,10 +2,10 @@
   "name": "api-learning",
   "version": "1.0.0",
   "description": "It's time to learn about APIs and proxies. This is my repo.",
-  "main": "app.js",
+  "main": "",
   "scripts": {
-    "start": "npx nodemon --watch src/ --ignore __tests__/ server.js",
-    "test": "jest --verbose"
+    "frontend:test": "cd app && npm run test",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -18,16 +18,7 @@
     "url": "https://github.com/1Copenut/api-learning/issues"
   },
   "homepage": "https://github.com/1Copenut/api-learning#readme",
-  "dependencies": {
-    "axios": "^0.24.0",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-rate-limit": "^5.2.6",
-    "node-fetch": "^2.6.1",
-    "xml-js": "^1.6.11"
-  },
   "devDependencies": {
-    "jest": "^26.6.3",
-    "nodemon": "^2.0.15"
+    "husky": "^7.0.4"
   }
 }
