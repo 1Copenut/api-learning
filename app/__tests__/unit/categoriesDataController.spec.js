@@ -1,5 +1,5 @@
 const axios = require("axios");
-const categoriesDataController = require("../../src/controllers/categoriesDataController");
+const categoriesDataController = require("../../controllers/categoriesDataController");
 
 jest.mock("axios");
 
