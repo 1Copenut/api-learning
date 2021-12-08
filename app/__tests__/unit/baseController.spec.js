@@ -1,4 +1,4 @@
-const baseController = require("../../src/controllers/baseController");
+const baseController = require("../../controllers/baseController");
 
 describe("Base controller", () => {
   it("Returns a test signal", async () => {

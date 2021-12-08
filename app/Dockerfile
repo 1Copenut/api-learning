@@ -2,7 +2,7 @@
 FROM node:alpine
 
 # Create the directory inside the container
-WORKDIR /usr/src/app
+WORKDIR /usr/app
 
 # Copy the package.json files from local to workdir in container
 COPY package*.json ./
