@@ -1,33 +1,54 @@
 {
-  "name": "api-learning",
-  "version": "1.0.0",
-  "description": "It's time to learn about APIs and proxies. This is my repo.",
-  "main": "app.js",
+  "name": "api-learning-es6-pivot",
+  "version": "0.0.0",
+  "private": true,
+  "nodemonConfig": {
+    "exec": "npm run dev",
+    "watch": [
+      "server/*",
+      "public/*"
+    ],
+    "ignore": [
+      "**/__tests__/**",
+      "*.test.js",
+      "*.spec.js"
+    ]
+  },
   "scripts": {
-    "start": "nodemon --watch src/ --ignore __tests__/ server.js",
-    "test": "jest --verbose"
+    "build": "npm-run-all clean transpile",
+    "clean": "rimraf dist",
+    "server": "node ./dist/bin/www",
+    "start": "npm run prod",
+    "test": "jest --verbose",
+    "transpile": "babel ./server --out-dir dist",
+    "dev": "NODE_ENV=development npm-run-all build server",
+    "prod": "NODE_ENV=production npm-run-all build server",
+    "watch:dev": "nodemon"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/1Copenut/api-learning.git"
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime"
+    ]
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/1Copenut/api-learning/issues"
-  },
-  "homepage": "https://github.com/1Copenut/api-learning#readme",
   "dependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.4",
+    "@babel/preset-env": "^7.16.4",
     "axios": "^0.24.0",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-rate-limit": "^5.2.6",
-    "node-fetch": "^2.6.1",
-    "xml-js": "^1.6.11"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
-    "jest": "^26.6.3",
-    "nodemon": "^2.0.15"
+    "jest": "^27.4.4"
   }
 }

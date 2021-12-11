@@ -1,10 +1,10 @@
-const axios = require("axios");
-const categoriesDataController = require("../../controllers/categoriesDataController");
+import axios from 'axios';
+import categoriesController from '../../server/controllers/categories';
 
 jest.mock("axios");
 
-describe("Categories data endpoint", () => {
-  it("Returns categories data", async () => {
+describe("Categories controller", () => {
+  it("Returns categories data by GET request", async () => {
     axios.get.mockResolvedValue({
       data: [
         {
@@ -18,7 +18,7 @@ describe("Categories data endpoint", () => {
       ],
     });
 
-    const data = await categoriesDataController(
+    const data = await categoriesController(
       "https://localhost:3000",
       "12345",
       "99"
