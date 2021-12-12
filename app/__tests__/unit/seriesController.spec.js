@@ -1,10 +1,10 @@
-const axios = require("axios");
-const seriesDataController = require("../../controllers/seriesDataController");
+import axios from 'axios';
+import seriesController from '../../server/controllers/series';
 
 jest.mock("axios");
 
-describe("Series data endpoint", () => {
-  it("Returns series data", async () => {
+describe("Series controller", () => {
+  it("Returns series data by GET request", async () => {
     axios.get.mockResolvedValue({
       data: [
         {
@@ -35,7 +35,7 @@ describe("Series data endpoint", () => {
       ],
     });
 
-    const data = await seriesDataController(
+    const data = await seriesController(
       "https://localhost:3000",
       "12345",
       "PET.W_EPM0F_YPY_R10_MBBLD.4"
