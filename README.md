@@ -15,3 +15,8 @@ It's time to learn about APIs and proxies. This is my repo.
 - [The only 3 steps you need to mock an API call in Jest](https://dev.to/zaklaughton/the-only-3-steps-you-need-to-mock-an-api-call-in-jest-39mb)
 - [How to Prevent Cross-Site Scripting in Node.js](https://www.section.io/engineering-education/how-to-prevent-cross-site-scripting-in-node-js/)
 - [express-validator](https://github.com/express-validator/express-validator)
+- [10 best practices to containerize Node.js web applications with Docker](https://snyk.io/wp-content/uploads/10-best-practices-to-containerize-Node.js-web-applications-with-Docker.pdf)
+
+## Troubleshooting
+- [SO: ES6 import happening before .env import](https://stackoverflow.com/a/42817956)
+- [SO: how to run multiple npm scripts in docker CMD command](https://stackoverflow.com/a/62628394)
