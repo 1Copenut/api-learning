@@ -1,12 +1,12 @@
 # ----- Base ----- #
 # Pull the Node.js Docker image
 FROM node:14.18.2-alpine3.12 AS base
-# Create the directory inside the container
-WORKDIR /usr/src/app
+# Create the app directory
+RUN mkdir -p /home/node/app && chown -R node:node /home/node/app
 # Switch to the low privilege user
 USER node
-# Change ownership of the working directory to low privilege user
-COPY --chown=node:node . /usr/src/app
+# Use the working directory
+WORKDIR /home/node/app
 # Copy the package.json files from local to workdir in container
 COPY package*.json ./
 
@@ -23,7 +23,7 @@ FROM dependencies as release
 # Set the env to production
 ENV NODE_ENV production
 # Copy production node_modules
-COPY --from=dependencies /usr/src/app/node_modules ./node_modules
+# COPY --from=dependencies /home/node/app/node_modules ./node_modules
 # Run NPM install in our local machine
 RUN npm run clean && npm run transpile
 # Our app is running on port 3000, so we need to expose it in the container
