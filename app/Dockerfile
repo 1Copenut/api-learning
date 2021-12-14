@@ -3,7 +3,9 @@
 FROM node:14.18.2-alpine3.12 AS base
 # Create the directory inside the container
 WORKDIR /usr/src/app
-# Create a low privilege user and make sure they own the app folder
+# Switch to the low privilege user
+USER node
+# Change ownership of the working directory to low privilege user
 COPY --chown=node:node . /usr/src/app
 # Copy the package.json files from local to workdir in container
 COPY package*.json ./
