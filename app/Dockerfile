@@ -1,3 +1,4 @@
+# ----- Base ----- #
 # Pull the Node.js Docker image
 FROM node:14.18.2-alpine3.12 AS builder
 # Create the app directory
