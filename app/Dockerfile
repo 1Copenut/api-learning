@@ -1,29 +1,44 @@
+# ----- Base ----- #
 # Pull the Node.js Docker image
+FROM node:14.18.2-alpine3.12 AS builder
+# Create the app directory
+RUN mkdir -p /home/node/app
+# Set the working directory
+WORKDIR /home/node/app
+
+# ----- Dependencies ----- #
+# Copy the app source files
+COPY . .
+ 
+# ----- Release ----- #
+# Install deps and compile sources to `dist`, then remove dev deps
+RUN npm set progress=false && \
+   npm config set depth 0 && \
+   npm ci && \
+   npm run transpile && \
+   npm prune
+
+#-------------------------------------------------------------------------------
+
 FROM node:14.18.2-alpine3.12
 
-# Create the directory inside the container
-WORKDIR /usr/src/app
+RUN apk add tini
 
-# Create a low privilege user and make sure they own the app folder
-# USER node
-# COPY --chown=node:node . /usr/src/app
-
-# Copy the package.json files from local to workdir in container
-COPY package*.json ./
-
-# Copy the generated modules and other files to the container
-COPY . .
-
-# Set the env to production
 ENV NODE_ENV production
 
-# Run NPM install in our local machine
-RUN npm install --only=production \
-  # Write to entrypoint
-  && printf "npm run clean\nnpm run transpile\nnpm run server" > entrypoint.sh
-
-# Our app is running on port 3000, so we need to expose that in the container
+# Our app is running on port 3000, so we need to expose it in the container
 EXPOSE 3000
 
+COPY --from=builder /home/node/app /home/node/app
+
+WORKDIR /home/node/app
+
+# Switch to the low privilege user.
+# It is unable to modify app files or dependencies.
+USER node
+
+# Let tini handle all signals
+ENTRYPOINT ["/sbin/tini", "--"]
+
 # Start the app
-CMD ["/bin/sh", "entrypoint.sh"]
+CMD ["node", "dist/bin/www"]
