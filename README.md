@@ -10,7 +10,7 @@ It's time to learn about APIs and proxies. This is my repo.
 Articles that have helped fill in knowledge gaps.
 
 ### Startup scripts
-- [https://vegibit.com/express-js-beginner-tutorial/](https://vegibit.com/express-js-beginner-tutorial/)
+- [Express.js Beginner Tutorial](https://vegibit.com/express-js-beginner-tutorial/)
 
 ### Fetching and testing
 - [How to Use Fetch with async/await](https://dmitripavlutin.com/javascript-fetch-async-await/)
