@@ -9,6 +9,9 @@ It's time to learn about APIs and proxies. This is my repo.
 ## Resources
 Articles that have helped fill in knowledge gaps.
 
+### Startup scripts
+- [https://vegibit.com/express-js-beginner-tutorial/](https://vegibit.com/express-js-beginner-tutorial/)
+
 ### Fetching and testing
 - [How to Use Fetch with async/await](https://dmitripavlutin.com/javascript-fetch-async-await/)
 - [Get Query Strings and Parameters in Express.js](https://stackabuse.com/get-query-strings-and-parameters-in-express-js/)
