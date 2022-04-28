@@ -23,6 +23,7 @@ Articles that have helped fill in knowledge gaps.
 - [CHEATSHEET: 10 best practices to containerize Node.js web applications with Docker](https://snyk.io/wp-content/uploads/10-best-practices-to-containerize-Node.js-web-applications-with-Docker.pdf)
 - [10 best practices to containerize Node.js web applications with Docker](https://snyk.io/blog/10-best-practices-to-containerize-nodejs-web-applications-with-docker/)
 - [10 Docker Security Best Practices](https://snyk.io/blog/10-docker-image-security-best-practices/)
+- [How to Build a Secure Server with Node.js and Express and Upload Images with Cloudinary](https://www.freecodecamp.org/news/build-a-secure-server-with-node-and-express/)
 
 ## Troubleshooting
 Because sometimes, things just go wrong.
